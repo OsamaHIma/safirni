@@ -6,33 +6,45 @@ import { LogInIcon } from "lucide-react";
 import {
   addUserWithEmailAndPassword,
   createUserDocument,
+  signIN,
 } from "@/utils//firebase";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { setCurrentUser } from "@/store/userSlice";
+import { useDispatch } from "react-redux";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+
+  const signInWithGoogle = async () => {
+    await signIN();
+    toast.success("تم تسجيل الدخول")
+  };
   const defaultProps = {
     displayName: "",
     email: "",
     password: "",
     confirmPassword: "",
+    dateOfBirth: "",
   };
   const [formFields, setFormFields] = useState(defaultProps);
-  const { displayName, email, password, confirmPassword } = formFields;
+  const { displayName, email, password, confirmPassword, dateOfBirth } =
+    formFields;
   const onChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
   const formHandler = (event) => {
+    event.preventDefault();
     if (!event.target.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
     }
 
     event.target.classList.add("was-validated");
-    const submitHandler = async (event) => {
-      event.preventDefault();
+    const submitHandler = async () => {
       if (password !== confirmPassword) {
-        alert(`Password doesn't match`);
+        toast.error(`كلمة المرور غير متطابقة`);
         return;
       }
       try {
@@ -40,10 +52,12 @@ const SignUp = () => {
         dispatch(setCurrentUser(user));
         const res = await createUserDocument(user, { displayName });
         restFormFields();
+        toast.success("تم إنشاء الحساب بنجاح");
       } catch (err) {
-        alert(err.code);
+        toast.error(err.code);
       }
     };
+    submitHandler();
   };
   const restFormFields = () => {
     setFormFields(defaultProps);
@@ -75,8 +89,11 @@ const SignUp = () => {
           <input
             type="text"
             className="form-control input-lg"
-            name="username"
+            name="displayName"
+            value={displayName}
             placeholder="الإسم الرباعي"
+            minLength={10}
+            onChange={onChange}
             required="required"
           />
           <div className="invalid-feedback">هذا الحقل مطلوب!</div>
@@ -86,6 +103,7 @@ const SignUp = () => {
             type="email"
             className="form-control input-lg"
             name="email"
+            value={email}
             placeholder="ألبريد الإكتروني"
             onChange={onChange}
             required="required"
@@ -97,25 +115,41 @@ const SignUp = () => {
             type="password"
             className="form-control input-lg"
             name="password"
+            value={password}
             placeholder="كلمة المرور"
             onChange={onChange}
+            autoComplete="new-password"
+            minLength={6}
             required="required"
           />
-          <div className="invalid-feedback">هذا الحقل مطلوب!</div>
+          <div className="invalid-feedback">
+            هذا الحقل مطلوب! كلمة المرور 6 احرف علي الاقل
+          </div>
         </div>
         <div className="form-group">
           <input
             type="password"
             className="form-control input-lg"
-            name="confirm_password"
+            name="confirmPassword"
+            value={confirmPassword}
             placeholder="تأكيد كلمة المرور"
+            minLength={6}
+      
             onChange={onChange}
             required="required"
           />
-          <div className="invalid-feedback">هذا الحقل مطلوب!</div>
+          <div className="invalid-feedback">
+            هذا الحقل مطلوب! كلمة المرور 6 احرف علي الاقل
+          </div>
         </div>
         <div className="form-group">
-          <input type="date" className="form-control" required />
+          <input
+            type="date"
+            className="form-control"
+            required
+            onChange={onChange}
+            value={dateOfBirth}
+          />
           <div className="invalid-feedback">هذا الحقل مطلوب!</div>
         </div>
         <div className="form-group">

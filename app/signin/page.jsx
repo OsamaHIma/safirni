@@ -4,19 +4,49 @@ import Button from "@/components/Button";
 import Link from "next/link";
 import { LogInIcon } from "lucide-react";
 import { signIN } from "@/utils/firebase";
+import { toast } from "react-toastify";
+import { useState } from "react";
+
+const defaultProps = {
+  email: "",
+  password: "",
+};
 
 const SignIn = () => {
   const signInWithGoogle = async () => {
     await signIN();
+    toast.success("تم تسجيل الدخول");
+  };
+
+  const [formFields, setFormFields] = useState(defaultProps);
+  const { email, password } = formFields;
+
+  const onChange = (event) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
   };
 
   const formHandler = (event) => {
+    event.preventDefault();
     if (!event.target.checkValidity()) {
-      event.preventDefault();
       event.stopPropagation();
     }
 
     event.target.classList.add("was-validated");
+    const submitHandler = async () => {
+      event.preventDefault();
+      try {
+        await signInUserWithEmailAndPassword(email, password);
+        toast.success("تم تسجيل الدخول");
+        restFormFields();
+      } catch (err) {
+        toast.error(err.code);
+      }
+    };
+    submitHandler();
+  };
+  const restFormFields = () => {
+    setFormFields(defaultProps);
   };
   return (
     <section className="signup-form transition-all ease-in relative">
@@ -46,6 +76,8 @@ const SignIn = () => {
             type="email"
             className="form-control input-lg"
             name="email"
+            value={email}
+            onChange={onChange}
             placeholder="ألبريد الإكتروني"
             required="required"
           />
@@ -56,14 +88,26 @@ const SignIn = () => {
             type="password"
             className="form-control input-lg"
             name="password"
+            value={password}
+            onChange={onChange}
             placeholder="كلمة المرور"
+            // autoComplete=""
             required="required"
           />
           <div className="invalid-feedback">هذا الحقل مطلوب!</div>
         </div>
-        <div className="form-group flex justify-between">
+        <div className="form-group flex justify-between items-center">
           <Button type="submit"> تسجيل الدخول</Button>
-          <Link href="#">هل نسيت كلمة المرور؟</Link>
+          <Link
+            href="/signin"
+            onClick={() =>
+              toast.error(
+                "اعملك ايه يعني هو انا الي نسيتة ركز بس وهتفتكره إن شاء الله"
+              )
+            }
+          >
+            هل نسيت كلمة المرور؟
+          </Link>
         </div>
       </form>
       <div className="text-center dark:!text-slate-100">

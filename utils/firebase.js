@@ -15,20 +15,17 @@ import {
   doc,
   getDoc,
   setDoc,
-  collection,
-  writeBatch,
-  query,
-  getDocs,
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBP_7kb8XPNr_fsc6RJEzJCYn9VpSWa4AA",
-  authDomain: "crwn-clothing-3c595.firebaseapp.com",
-  projectId: "crwn-clothing-3c595",
-  storageBucket: "crwn-clothing-3c595.appspot.com",
-  messagingSenderId: "29635659989",
-  appId: "1:29635659989:web:f27f66dfc5a4375a1dfa5c",
+  apiKey: "AIzaSyBC69DbZ1iu_MZUcxvvXxbKsb1l38gZxNE",
+  authDomain: "safirni-com.firebaseapp.com",
+  projectId: "safirni-com",
+  storageBucket: "safirni-com.appspot.com",
+  messagingSenderId: "330990068467",
+  appId: "1:330990068467:web:94341555f02031107e0d86",
+  measurementId: "G-RFQT8LE12V"
 };
 
 // Initialize Firebase
@@ -45,31 +42,6 @@ export const signInWithGoogleRedirect = () => {
   signInWithRedirect(auth, provider);
 };
 
-// adding collections to firestore dataBase
-
-export const addCollection = async (collectionKey, objects) => {
-  const collectionRef = collection(dataBase, collectionKey);
-  const batch = writeBatch(dataBase);
-  objects.forEach((object) => {
-    const docRef = doc(collectionRef, object.title.toLowerCase());
-    batch.set(docRef, object);
-  });
-  await batch.commit();
-};
-
-// Getting data from firebase
-
-export const getCollection = async () => {
-  const collectionRef = collection(dataBase, "catagories");
-  const q = query(collectionRef);
-  const querySnapShoot = await getDocs(q);
-  const categoryMap = querySnapShoot.docs.reduce((acc, docSnapShoot) => {
-    const { title, items } = docSnapShoot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-  return categoryMap;
-};
 
 // Creating user document and if it doesn't exist create new one
 

@@ -1,4 +1,4 @@
-import { Car, Hotel, Mountain, PlaneIcon } from "lucide-react";
+import { Car, Hotel, Mountain, PlaneLanding } from "lucide-react";
 export const services = [
   {
     title: "حجز سكن",
@@ -18,6 +18,6 @@ export const services = [
   {
     title: "الاستقبال من المطار",
     text: "نقدم لكم خدمة الاستقبال من المطار وتوديعكم في المطار بحيث يكون مندوبنا متواجد دائمًا في خدمتكم أثناء وصولكم أو ذهابكم للمطار مع أفضل وسائل النقل.",
-    icon: PlaneIcon,
+    icon: PlaneLanding,
   },
 ];

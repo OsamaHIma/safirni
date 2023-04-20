@@ -2,8 +2,9 @@ import "./globals.scss";
 import Providers from "@/components/Providers";
 import Navbar from "@/components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
-import Head from "next/head";
 import { Cairo } from "next/font/google";
+import "react-toastify/dist/ReactToastify.css";
+
 const cairo = Cairo({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,7 +18,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="shortcut icon" href="/assets/logo.svg" />
       </head>
-      <body className={`${cairo.className} bg-slate-200 dark:bg-slate-800 transition-all ease-in`}>
+      <body
+        className={`${cairo.className} bg-slate-200 dark:bg-slate-800 transition-all ease-in`}
+      >
         <Providers>
           <Navbar />
           {children}
