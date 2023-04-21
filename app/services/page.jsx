@@ -36,7 +36,9 @@ const Services = () => {
 
   return (
     <>
-      <h2 className="!text-slate-700 dark:!text-slate-100">خدماتنا</h2>
+      <div className="text-center mt-3">
+        <h2 className="!text-slate-700 dark:!text-slate-100">خدماتنا</h2>
+      </div>
 
       <div className="flex flex-col mt-20" dir="ltr">
         <VerticalTimeline>

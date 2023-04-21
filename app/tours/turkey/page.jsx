@@ -11,9 +11,9 @@ const EgyptTour = () => {
       return (
         <>
           <div className="col-md-7">
-            <h5 key={index + 8}>{title}</h5>
+            <h5 key={index + 8} className="font-bold">{title}</h5>
 
-            <p className="dark:!text-gray-300" key={index + 1}>
+            <p className="!text-slate-900 dark:!text-gray-300" key={index + 1}>
               {points[index]}
             </p>
           </div>
@@ -22,7 +22,7 @@ const EgyptTour = () => {
             <div className="info-img">
               <Image
                 src={images[index]}
-                alt=""
+                alt="tour image"
                 fil="true"
                 className={`shadow ${index % 2 == 0 ? "left" : "right"}`}
               />
@@ -37,15 +37,15 @@ const EgyptTour = () => {
             <div className="info-img">
               <Image
                 src={images[index]}
-                alt=""
+                alt="tour image"
                 fil="true"
                 className={`shadow ${index % 2 == 0 ? "left" : "right"}`}
               />
             </div>
           </div>
           <div className="col-md-7">
-            <h5 key={index + 5}>{title}</h5>
-            <p key={index + 4}>{points[index]}</p>
+            <h5 key={index + 5} className="font-bold">{title}</h5>
+            <p key={index + 4} className="!text-slate-900 dark:!text-gray-300">{points[index]}</p>
           </div>
         </>
       );

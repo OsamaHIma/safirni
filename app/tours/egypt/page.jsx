@@ -10,9 +10,9 @@ const EgyptTour = () => {
       return (
         <>
           <div className="col-md-7">
-            <h5 key={index + 9}>{title}</h5>
+            <h5 key={index + 9} className="font-bold">{title}</h5>
 
-            <p className="dark:!text-gray-300" key={index + 1}>
+            <p className="!text-slate-900 dark:!text-gray-300" key={index + 1}>
               {points[index]}
             </p>
           </div>
@@ -43,9 +43,11 @@ const EgyptTour = () => {
             </div>
           </div>
           <div className="col-md-7">
-            <h5 key={index + 6}>{title}</h5>
+            <h5 key={index + 6} className="font-bold">{title}</h5>
 
-            <p key={index + 5}>{points[index]}</p>
+            <p key={index + 5} className="!text-slate-900 dark:!text-gray-300">
+              {points[index]}
+            </p>
           </div>
         </>
       );

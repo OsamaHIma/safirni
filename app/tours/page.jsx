@@ -18,6 +18,7 @@ const Tours = () => {
                 src="/assets/Egypt1.jpg"
                 className="card-img-top"
                 alt="Egypt tour"
+                loading="eager"
               />
             </div>
             <div className="card-body">
@@ -49,6 +50,7 @@ const Tours = () => {
                 src="/assets/turkey1.jpg"
                 className="card-img-top"
                 alt="Turkey tour"
+                loading="eager"
               />
             </div>
             <div className="card-body">
