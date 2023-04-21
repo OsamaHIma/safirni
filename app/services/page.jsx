@@ -4,9 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { motion } from "framer-motion";
 import { services } from "@/constants";
-import { textVariant } from "@/utils/motion";
 
 const Services = () => {
   const ServicesCard = ({ service, index }) => (
@@ -21,7 +19,9 @@ const Services = () => {
       }
     >
       <div>
-        <h3 className="font-bold text-white text-[24px] float-right">{service.title}</h3>
+        <h3 className="font-bold text-white text-[24px] float-right">
+          {service.title}
+        </h3>
       </div>
       <ul className="list mt-5 ml-5 space-y-2">
         <li
@@ -36,10 +36,8 @@ const Services = () => {
 
   return (
     <>
-      <motion.div className="text-center mt-3" variants={textVariant()}>
-        {/* <p >What I have learned so far</p> */}
-        <h2 className="!text-slate-700 dark:!text-slate-100">خدماتنا</h2>
-      </motion.div>
+      <h2 className="!text-slate-700 dark:!text-slate-100">خدماتنا</h2>
+
       <div className="flex flex-col mt-20" dir="ltr">
         <VerticalTimeline>
           {services.map((service, index) => (
