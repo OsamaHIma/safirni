@@ -68,6 +68,7 @@ const Contact = () => {
                 type="text"
                 className="form-control"
                 placeholder="الأسم"
+                autoComplete="given-name"
                 required
               />
               <div className="invalid-feedback">برجاء ادخال الاسم</div>
@@ -77,6 +78,7 @@ const Contact = () => {
                 type="email"
                 className="form-control"
                 placeholder="البريد الإلكتروني"
+                autoComplete="on"
                 required
               />
               <div className="invalid-feedback">
