@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div className="h-[calc(100%-60px)] w-full bg-[url('/assets/turkey2.jpg')] dark:bg-[url('/assets/turkey3.jpg')] bg-cover bg-no-repeat">
+    <div className="absolute h-[calc(100%-60px)] w-full bg-[url('/assets/turkey2.jpg')] dark:bg-[url('/assets/turkey3.jpg')] bg-cover bg-no-repeat">
       <div className="row">
         <div className="col-md-8">
           <h1 className="text-5xl md:text-8xl text-slate-100 px-5 mt-3 md:leading-[8rem] leading-[5rem]">
