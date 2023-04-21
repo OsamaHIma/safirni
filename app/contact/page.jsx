@@ -1,4 +1,4 @@
-import React from "react";
+"use client"
 import "./style.scss";
 import {
   FacebookIcon,
@@ -6,34 +6,50 @@ import {
   TwitterIcon,
   LinkedinIcon,
   InstagramIcon,
+  PhoneCallIcon,
 } from "lucide-react";
 
 const Contact = () => {
+  const formHandler = (event) => {
+    event.preventDefault();
+    if (!event.target.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    event.target.classList.add("was-validated");
+  };
   return (
     <>
-      <div className="contact " id="contact">
+      <div className="contact" id="contact">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <div className="map">
+              <div className="map mb-3">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!4v1657551692935!6m8!1m7!1sgT28ssf0BB2LxZ63JNcL1w!2m2!1d35.70407437075822!2d139.5577317304603!3f297.2477871110872!4f-21.116245064170727!5f0.7820865974627469"
                   className="border-none"
                   allowFullscreen="true"
-                  height={500}
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>
             <div className="col-md-6">
               <div className="contact-addresses">
-                <h4 className="dark:!text-white font-semibold"> مقر الشركة</h4>
+                <h4 className="dark:!text-white font-semibold mt-0 sm:mt-3 mb-7 sm:mb-10">
+                  {" "}
+                  مقر الشركة
+                </h4>
                 <ul className="p-0">
                   <li>
-                    <MapPinIcon />
+                    <MapPinIcon className="!my-2" />
                     <address className="d-inline">
-                      مدينة نصر الحي السادس دور بقي هناك
+                      مدينة نصر الحي السادس
                     </address>
+                  </li>
+                  <li>
+                    <PhoneCallIcon className="!my-2" />
+                    <a href="tel:+201090885749">201090885749</a>
                   </li>
                 </ul>
               </div>
@@ -42,7 +58,11 @@ const Contact = () => {
           <div className="contact-text text-center">
             <h3 className="dark:!text-gray-300">تواصل معنا</h3>
           </div>
-          <form className="contact-form row needs-validation" noValidate>
+          <form
+            className="contact-form row needs-validation"
+            noValidate
+            onSubmit={formHandler}
+          >
             <div className="col-md-6 mb-3">
               <input
                 type="text"
@@ -110,7 +130,7 @@ const Contact = () => {
                         <LinkedinIcon />
                       </a>
                     </li>
-                    <li className="list-inline-item mr-2" >
+                    <li className="list-inline-item mr-2">
                       <a href="">
                         <InstagramIcon />
                       </a>

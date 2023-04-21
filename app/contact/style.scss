@@ -20,13 +20,12 @@ $background-color_8: #111111;
 .contact {
     padding: 100px 0 60px;
     iframe {
-        height: 200px;
-        width: 90%;
+        height: 300px;
+        width: 100%;
     }
     .contact-addresses {
         h4 {
             font-size: 24px;
-            margin-bottom: 40px;
             color: $color_1;
         }
         ul {
@@ -35,6 +34,7 @@ $background-color_8: #111111;
                 color: $color_2;
                 line-height: 25px;
                 margin-bottom: 15px;
+                margin: 35px 0;
             }
         }
     }
@@ -67,6 +67,10 @@ $background-color_8: #111111;
             border: none;
             font-size: 18px;
             transition: all 0.3s ease-out;
+            &:hover,
+            &:focus {
+                background-color: darken($background-color_2, $amount: 7);
+            }
         }
     }
     .contact-text {
