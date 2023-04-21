@@ -7,7 +7,7 @@ import {
   MenuIcon,
   LogOutIcon,
   UserIcon,
-  UserCogIcon
+  UserCogIcon,
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
@@ -24,6 +24,7 @@ import { useEffect } from "react";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  // check if user is already signed in
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
@@ -33,15 +34,16 @@ const Navbar = () => {
     });
     return unsubscribe;
   }, []);
+
   const { currentUser } = useSelector((store) => store.user);
-  console.log("currentUser", currentUser);
+
   if (currentUser) {
-    var { displayName, photoURL } = currentUser;
+    var { displayName } = currentUser;
   }
   const { setTheme } = useTheme();
 
   return (
-    <nav className="navbar border-b border-slate-300 dark:border-slate-700 shadow-sm transition-all ease-in navbar-expand-lg dark:bg-slate-800">
+    <nav className="navbar border-b border-slate-300 dark:border-slate-700 shadow-sm transition-all ease-in navbar-expand-lg dark:bg-slate-800 z-10">
       <div className="container-fluid">
         <Link
           className="navbar-brand dark:text-slate-200 hover:!text-slate-300"
@@ -68,7 +70,6 @@ const Navbar = () => {
         </button>
         <div
           className="offcanvas offcanvas-end dark:bg-slate-800"
-          // tabindex="-1"
           id="offcanvasDarkNavbar"
           aria-labelledby="offcanvasDarkNavbarLabel"
         >
@@ -127,7 +128,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link dark:text-slate-200 dark:hover:!text-slate-300"
+                  className="nav-link dark:!text-slate-200 dark:hover:!text-slate-300"
                   href="/services"
                 >
                   خدماتنا
@@ -135,7 +136,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link dark:text-slate-200 dark:hover:!text-slate-300"
+                  className="nav-link dark:!text-slate-200 dark:hover:!text-slate-300"
                   href="/tours"
                 >
                   الجولات السياحية
@@ -143,44 +144,13 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link dark:text-slate-200 dark:hover:!text-slate-300"
+                  className="nav-link dark:!text-slate-200 dark:hover:!text-slate-300"
                   href="/contact"
                 >
                   تواصل معنا
                 </Link>
               </li>
               {currentUser ? (
-                // <li className="nav-item z-10">
-                //   <div className="nav-link inline-block btn-group">
-                //     <img
-                //       src={photoURL}
-                //       alt="avatar"
-                //       type="button"
-                //       className="w-50 ml-2 rounded-circle dropdown-toggle dropdown-toggle-split"
-                //       data-toggle="dropdown"
-                //     />
-                //     <div
-                //       className="user-menu dropdown-menu"
-                //       style={{ width: "180px" }}
-                //     >
-                //       <div
-                //         className="dropdown-item disabled px-2"
-                //         style={{ fontSize: "14px" }}
-                //       >
-                //         <UserIcon className="mr-2 h-4 w-4 inline" />{displayName}
-                //       </div>
-
-                //       <p
-                //         className="dropdown-item mb-0 px-2"
-                //         type="button"
-                //         onClick={SignOutUser}
-                //       >
-                //         <LogOutIcon className="mr-2 h-4 w-4 inline" />
-                //         تسجيل الخروج
-                //       </p>
-                //     </div>
-                //   </div>
-                // </li>
                 <li className="nav-item dropdown z-10" dir="ltr">
                   <button
                     className="nav-link !inline sm:block"
@@ -199,7 +169,10 @@ const Navbar = () => {
                       <UserIcon className="mr-2 h-4 w-4 inline" />
                       <span>{displayName}</span>
                     </li>
-                    <li onClick={SignOutUser} className=" dark:bg-slate-900 dropdown-item cursor-pointer dark:hover:bg-slate-800 dark:text-slate-400 dark:hover:text-slate-100 active:!bg-gray-400">
+                    <li
+                      onClick={SignOutUser}
+                      className=" dark:bg-slate-900 dropdown-item cursor-pointer dark:hover:bg-slate-800 dark:text-slate-400 dark:hover:text-slate-100 active:!bg-gray-400"
+                    >
                       <LogOutIcon className="mr-2 h-4 w-4 inline" />
                       <span>تسجيل الخروج</span>
                     </li>
