@@ -14,7 +14,7 @@ const Services = () => {
       iconStyle={{ background: "#222" }}
       icon={
         <div className="flex absolute justify-center w-full h-full">
-          <service.icon className="!w-10 !h-10 text-slate-100 !top-0 !left-0 !ml-0 !mt-2" />
+          <service.icon className="!w-6 !h-6 md:!w-9 md:!h-9 sm:!w-7 sm:!h-7 text-slate-100 !top-0 !left-0 !ml-0 !mt-2" />
         </div>
       }
     >
