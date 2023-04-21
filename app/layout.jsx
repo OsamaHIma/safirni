@@ -8,7 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 const cairo = Cairo({ subsets: ["latin"] });
 export const metadata = {
   title: "سفرني | الرئيسية",
-  description: 'أول موقع عربي للسفر',
+  description: `الشركة السياحية الأفضل في الوطن العربي، هدفنا مساعدتك وتيسير
+  أمورك، لا تتردد بالتواصل معنا فنحن هنا لنساعدك على إيجاد كل
+  ما تحتاج له. إن كنت تبحث عن سكن أو جولة سياحية لتقضي أفضل
+  الأوقات فقد وجدت طلبك.`,
 };
 const RootLayout = ({ children }) => {
   return (
@@ -26,5 +29,5 @@ const RootLayout = ({ children }) => {
       </body>
     </html>
   );
-}
-export default RootLayout 
+};
+export default RootLayout;
