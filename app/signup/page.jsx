@@ -18,7 +18,7 @@ const SignUp = () => {
 
   const signInWithGoogle = async () => {
     await signIN();
-    toast.success("تم تسجيل الدخول")
+    toast.success("تم تسجيل الدخول");
   };
   const defaultProps = {
     displayName: "",
@@ -27,13 +27,20 @@ const SignUp = () => {
     confirmPassword: "",
     dateOfBirth: "",
   };
+
   const [formFields, setFormFields] = useState(defaultProps);
   const { displayName, email, password, confirmPassword, dateOfBirth } =
     formFields;
+
   const onChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
+
+  const restFormFields = () => {
+    setFormFields(defaultProps);
+  };
+  //Handel submit
   const formHandler = (event) => {
     event.preventDefault();
     if (!event.target.checkValidity()) {
@@ -59,11 +66,8 @@ const SignUp = () => {
     };
     submitHandler();
   };
-  const restFormFields = () => {
-    setFormFields(defaultProps);
-  };
   return (
-    <section className="signup-form transition-all ease-in relative">
+    <section className="signup-form !pt-0 sm:!pt-4 transition-all ease-in relative">
       <form
         className="needs-validation bg-slate-50 dark:!bg-slate-700"
         onSubmit={formHandler}
@@ -88,7 +92,7 @@ const SignUp = () => {
         <div className="form-group">
           <input
             type="text"
-            className="form-control input-lg"
+            className="form-control shadow input-lg"
             name="displayName"
             value={displayName}
             placeholder="الإسم الرباعي"
@@ -101,10 +105,11 @@ const SignUp = () => {
         <div className="form-group">
           <input
             type="email"
-            className="form-control input-lg"
+            className="form-control shadow input-lg"
             name="email"
             value={email}
             placeholder="ألبريد الإكتروني"
+            autoComplete="email"
             onChange={onChange}
             required="required"
           />
@@ -113,7 +118,7 @@ const SignUp = () => {
         <div className="form-group">
           <input
             type="password"
-            className="form-control input-lg"
+            className="form-control shadow input-lg"
             name="password"
             value={password}
             placeholder="كلمة المرور"
@@ -129,12 +134,12 @@ const SignUp = () => {
         <div className="form-group">
           <input
             type="password"
-            className="form-control input-lg"
+            className="form-control shadow input-lg"
             name="confirmPassword"
             value={confirmPassword}
             placeholder="تأكيد كلمة المرور"
+            autoComplete="new-password"
             minLength={6}
-      
             onChange={onChange}
             required="required"
           />
@@ -142,11 +147,14 @@ const SignUp = () => {
             هذا الحقل مطلوب! كلمة المرور 6 احرف علي الاقل
           </div>
         </div>
-        <div className="form-group">
+        <div className="form-group datepicker">
           <input
             type="date"
-            className="form-control"
+            className="form-control shadow"
             required
+            placeholder="تاريخ الميلاد"
+            name="dateOfBirth"
+            autoComplete="bday"
             onChange={onChange}
             value={dateOfBirth}
           />
@@ -158,7 +166,7 @@ const SignUp = () => {
       </form>
       <div className="text-center dark:!text-slate-100">
         لديك حساب بالفعل؟{" "}
-        <Link href="signin" className="dark:text-slate-300">
+        <Link href="signin" className="dark:!text-gray-400">
           سجل الدخول
         </Link>
       </div>

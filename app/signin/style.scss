@@ -2,14 +2,18 @@
     font-size: 16px;
     transition: all 0.4s;
     box-shadow: none;
+    border: none !important;
 
     &:focus {
-        border-color: #4b4b4b;
+        box-shadow: #dbdbdb;
     }
+}
+.dark .form-control {
+    color: #fff !important;
+    background-color: rgb(31, 40, 53) !important;
 }
 .form-control,
 .btn {
-    border-radius: 50px;
     outline: none !important;
 }
 .signup-form {

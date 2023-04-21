@@ -4,7 +4,7 @@ import Link from "next/link";
 const Tours = () => {
   return (
     <div className="container pt-4">
-      <div className="row g-5 ">
+      <div className="row g-5 mb-3">
         <div className="col-md-6">
           <div className="card text-center bg-slate-50 dark:!bg-slate-700">
             <div
@@ -32,7 +32,7 @@ const Tours = () => {
               <p className="text-success">
                 السعر: $175.99
               </p>
-              <Button><Link href="/tours/egypt">التفاصيل</Link></Button>
+              <Button extraClass="!bg-[#16aeca]"><Link className=" !text-white" href="/tours/egypt">التفاصيل</Link></Button>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ const Tours = () => {
               <p className="text-success">
                 السعر: $153
               </p>
-              <Button><Link href="/tours/turkey">التفاصيل</Link></Button>
+              <Button extraClass="!bg-[#16aeca]"><Link className=" !text-white" href="/tours/turkey">التفاصيل</Link></Button>
             </div>
           </div>
         </div>

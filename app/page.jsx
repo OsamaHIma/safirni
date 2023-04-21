@@ -1,15 +1,14 @@
 "use client";
 import { textVariant } from "@/utils/motion";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 const Home = () => {
 
   return (
-    <div className="absolute  h-[calc(100%-60px)] w-full bg-[url('/assets/turkey2.jpg')] dark:bg-[url('/assets/turkey3.jpg')] bg-cover bg-no-repeat">
+    <div className="h-[calc(100%-60px)] w-full bg-[url('/assets/turkey2.jpg')] dark:bg-[url('/assets/turkey3.jpg')] bg-cover bg-no-repeat">
       <div className="row">
         <div className="col-md-8">
-          <div className="container">
+          
             <h1 className="text-5xl md:text-8xl text-slate-100 px-5 mt-3 md:leading-[8rem] leading-[5rem]">
               التاريخ والحضارة
               <br className="xl:block hidden" />
@@ -24,7 +23,7 @@ const Home = () => {
               </p>
               <hr className="text-slate-100 block" />
 
-              <div className="row mt-5">
+              <div className="row mt-5 pr-[3rem]">
                 <div className="col-md-4">
                   <div className="info-box">
                     <p className="text-gray-300">الاماكن الاكثر شهرة</p>
@@ -44,16 +43,16 @@ const Home = () => {
                 <div className="col-md-4">
                   <div className="info-box">
                     <p className="text-gray-300">طبيعة المدينة</p>
-                    <p className="text-white font-extrabold">
+                    <p className="text-white font-extrabold !mb-0">
                       واحدة من أكبر و أجمل مدن تركيا
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
-          </div>
+          
         </div>
-        <div className="col-md-4"></div>
+        <div className="col-md-4 !p-0"></div>
       </div>
     </div>
   );

@@ -74,10 +74,11 @@ const SignIn = () => {
         <div className="form-group">
           <input
             type="email"
-            className="form-control input-lg"
+            className="form-control shadow input-lg"
             name="email"
             value={email}
             onChange={onChange}
+            autoComplete="email"
             placeholder="ألبريد الإكتروني"
             required="required"
           />
@@ -86,12 +87,12 @@ const SignIn = () => {
         <div className="form-group">
           <input
             type="password"
-            className="form-control input-lg"
+            className="form-control shadow input-lg"
             name="password"
             value={password}
             onChange={onChange}
             placeholder="كلمة المرور"
-            // autoComplete=""
+            autoComplete="current-password"
             required="required"
           />
           <div className="invalid-feedback">هذا الحقل مطلوب!</div>
@@ -100,6 +101,7 @@ const SignIn = () => {
           <Button type="submit"> تسجيل الدخول</Button>
           <Link
             href="/signin"
+            className="dark:!text-gray-400"
             onClick={() =>
               toast.error(
                 "اعملك ايه يعني هو انا الي نسيتة ركز بس وهتفتكره إن شاء الله"
@@ -112,7 +114,7 @@ const SignIn = () => {
       </form>
       <div className="text-center dark:!text-slate-100">
         ليس لديك حساب ؟{" "}
-        <Link href="/signup" className=" dark:text-slate-300">
+        <Link href="/signup" className=" dark:!text-gray-400">
           أنشئ حساب
         </Link>
       </div>

@@ -69,7 +69,7 @@ const Navbar = () => {
           <MenuIcon className="inline dark:text-slate-100" />
         </button>
         <div
-          className="offcanvas offcanvas-end dark:bg-slate-800"
+          className="offcanvas offcanvas-end !w-[67%] dark:bg-slate-800"
           id="offcanvasDarkNavbar"
           aria-labelledby="offcanvasDarkNavbarLabel"
         >
@@ -179,7 +179,7 @@ const Navbar = () => {
                   </ul>
                 </li>
               ) : (
-                <li className="nav-item">
+                <li className="nav-item sm:mr-2.5 mr-0 mt-2.5 sm:mt-0">
                   <Button>
                     <Link
                       href="/signup"
