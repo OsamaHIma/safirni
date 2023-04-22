@@ -14,8 +14,12 @@ const defaultProps = {
 
 const SignIn = () => {
   const signInWithGoogle = async () => {
-    await signIN();
-    toast.success("تم تسجيل الدخول");
+    try {
+      await signIN();
+      toast.success("تم تسجيل الدخول");
+    } catch (error) {
+      toast.error(error.message || error);
+    }
   };
 
   const [formFields, setFormFields] = useState(defaultProps);
@@ -33,6 +37,7 @@ const SignIn = () => {
     }
 
     event.target.classList.add("was-validated");
+    if (!password || !email) return;
     const submitHandler = async () => {
       event.preventDefault();
       try {
@@ -40,7 +45,7 @@ const SignIn = () => {
         toast.success("تم تسجيل الدخول");
         restFormFields();
       } catch (err) {
-        toast.error(err.code);
+        toast.error(err.code || err.message || err);
       }
     };
     submitHandler();

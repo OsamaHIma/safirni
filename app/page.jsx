@@ -19,26 +19,26 @@ const Home = () => {
 
           <div className="row mt-5 !pr-[3rem]">
             <div className="col-md-4">
-              <div className="info-box">
-                <p className="text-gray-300 truncate">الاماكن الاكثر شهرة</p>
+              <div className="info-box pr-2 py-2 bg-black/30 rounded-md">
+                <p className="text-gray-200 truncate">الاماكن الاكثر شهرة</p>
                 <p className="text-white font-extrabold truncate">
                   متحف آيا صوفيا في <br/> مدينة إسطنبول
                 </p>
               </div>
             </div>
             <div className="col-md-4">
-              <div className="info-box">
-                <p className="text-gray-300 truncate">الاماكن الاكثر إثارة</p>
+              <div className="info-box pr-2 py-2 bg-black/30 rounded-md">
+                <p className="text-gray-200 truncate">الاماكن الاكثر إثارة</p>
                 <p className="text-white font-extrabold truncate">
                   برج غالاتا هو برج تاريخي <br/> عريق يُقال أنه بُنِي عام 507
                 </p>
               </div>
             </div>
             <div className="col-md-4 mb-3">
-              <div className="info-box">
-                <p className="text-gray-300 truncate">طبيعة المدينة</p>
-                <p className="text-white font-extrabold !mb-0 truncate">
-                  واحدة من أكبر و أجمل مدن تركيا
+              <div className="info-box pr-2 py-2 bg-black/30 rounded-md">
+                <p className="text-gray-200 truncate">طبيعة المدينة</p>
+                <p className="text-white font-extrabold truncate">
+                 واحدة من أكبر و أجمل مدن تركيا <br/> متميزة بطبيعتها الخلابة
                 </p>
               </div>
             </div>

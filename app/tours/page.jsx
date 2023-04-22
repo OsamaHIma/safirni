@@ -6,7 +6,7 @@ const Tours = () => {
     <div className="container pt-4">
       <div className="row g-5 mb-3">
         <div className="col-md-6">
-          <div className="card text-center bg-slate-50 dark:!bg-slate-700">
+          <div className="card !min-h-[500px] text-center bg-slate-50 dark:!bg-slate-700">
             <div
               className="head"
               style={{
@@ -30,15 +30,21 @@ const Tours = () => {
                 تتصف أهرامات مصر الثلاثة بأنها أحد أهم عجائب الدنيا السبعة في
                 جمهورية مصر تقع على هضبة الجيزة في محافظة الجيزة.
               </p>
-              <p className="text-success">
-                السعر: $175.99
-              </p>
-              <Button extraClass="!bg-[#16aeca]"><Link className=" !text-white" href="/tours/egypt">التفاصيل</Link></Button>
+              <p className="text-success">السعر: $175.99</p>
+              <Button extraClass="!bg-[#16aeca]">
+                <Link
+                  title="التفاصيل"
+                  className=" !text-white"
+                  href="/tours/egypt"
+                >
+                  التفاصيل
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
         <div className="col-md-6">
-          <div className="card text-center h-[21rem] bg-slate-50 dark:!bg-slate-700">
+          <div className="card !min-h-[500px]  text-center h-[21rem] bg-slate-50 dark:!bg-slate-700">
             <div
               className=""
               style={{
@@ -62,10 +68,16 @@ const Tours = () => {
                 المدن السياحية جذباً للسياح في العالم وتُعتبر إسطنبول الخيار
                 الأول للسياح
               </p>
-              <p className="text-success">
-                السعر: $153
-              </p>
-              <Button extraClass="!bg-[#16aeca]"><Link className=" !text-white" href="/tours/turkey">التفاصيل</Link></Button>
+              <p className="text-success">السعر: $153</p>
+              <Button extraClass="!bg-[#16aeca]">
+                <Link
+                  className=" !text-white"
+                  href="/tours/turkey"
+                  title="التفاصيل"
+                >
+                  التفاصيل
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

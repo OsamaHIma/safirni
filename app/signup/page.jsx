@@ -17,8 +17,12 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   const signInWithGoogle = async () => {
-    await signIN();
-    toast.success("تم تسجيل الدخول");
+    try {
+      await signIN();
+      toast.success("تم تسجيل الدخول");
+    } catch (error) {
+      toast.error(error.message || error);
+    }
   };
   const defaultProps = {
     displayName: "",
@@ -54,6 +58,14 @@ const SignUp = () => {
         toast.error(`كلمة المرور غير متطابقة`);
         return;
       }
+      if (
+        !password ||
+        !displayName ||
+        !email ||
+        !confirmPassword ||
+        !dateOfBirth
+      )
+        return;
       try {
         const { user } = await addUserWithEmailAndPassword(email, password);
         dispatch(setCurrentUser(user));
@@ -61,7 +73,7 @@ const SignUp = () => {
         restFormFields();
         toast.success("تم إنشاء الحساب بنجاح");
       } catch (err) {
-        toast.error(err.code);
+        toast.error(err.code || err.message || err);
       }
     };
     submitHandler();
