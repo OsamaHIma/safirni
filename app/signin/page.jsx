@@ -98,6 +98,7 @@ const SignIn = () => {
             onChange={onChange}
             placeholder="كلمة المرور"
             autoComplete="current-password"
+            minLength={6}
             required="required"
           />
           <div className="invalid-feedback">هذا الحقل مطلوب!</div>
