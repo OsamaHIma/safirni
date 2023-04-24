@@ -59,7 +59,7 @@ const Navbar = () => {
           />
         </Link>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler focus:!shadow-none"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasDarkNavbar"
@@ -129,7 +129,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className="nav-link dark:!text-slate-200 dark:hover:!text-slate-300"
-                  href="/services"
+                  href="#services"
                 >
                   خدماتنا
                 </Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className="nav-link dark:!text-slate-200 dark:hover:!text-slate-300"
-                  href="/tours"
+                  href="#tours"
                 >
                   الجولات السياحية
                 </Link>
@@ -145,7 +145,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className="nav-link dark:!text-slate-200 dark:hover:!text-slate-300"
-                  href="/contact"
+                  href="#contact"
                 >
                   تواصل معنا
                 </Link>

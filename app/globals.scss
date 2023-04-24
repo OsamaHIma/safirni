@@ -10,6 +10,7 @@
 html,
 body {
   overflow-x: hidden !important;
+  scroll-behavior: smooth !important;
 }
 
 a {
@@ -23,4 +24,3 @@ a {
 ::-webkit-scrollbar {
   width: 0px;
 }
-

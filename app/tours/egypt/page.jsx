@@ -54,7 +54,7 @@ const EgyptTour = () => {
     }
   };
   return (
-    <>
+    <section >
       <section className="w-full rounded-md">
         <div id="carouselExampleIndicators" className="carousel slide">
           <div className="carousel-indicators">
@@ -116,7 +116,7 @@ const EgyptTour = () => {
           </button>
         </div>
       </section>
-      <article>
+      <article className="bg-[#bbc966a8]">
         <section>
           <div className="inner-wrap max-w-3xl py-10 px-7 text-center mx-auto dark:!text-slate-100">
             <h1 className="dark:!text-white font-semibold leading-10 mb-4">
@@ -136,7 +136,7 @@ const EgyptTour = () => {
           </div>
         </div>
       </article>
-    </>
+    </section>
   );
 };
 

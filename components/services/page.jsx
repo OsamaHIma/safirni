@@ -1,4 +1,5 @@
 "use client";
+
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -19,14 +20,15 @@ const Services = () => {
       }
     >
       <div>
-        <h3 className="font-bold text-white text-[24px] float-right">
+        <h3 className="font-bold text-white text-[24px] float-right" dir="rtl">
           {service.title}
         </h3>
       </div>
-      <ul className="list mt-5 ml-5 space-y-2">
+      <ul className="list mt-5 ml-5 space-y-2" dir="rtl">
         <li
           key={index}
           className="text-white-100 text-[14px] tracking-wider pl-1 float-right"
+          dir="rtl"
         >
           {service.text}
         </li>
@@ -35,19 +37,19 @@ const Services = () => {
   );
 
   return (
-    <>
-      <div className="text-center mt-3">
+    <section id="services" className="!mb-20">
+      <div className="text-center mt-10">
         <h2 className="!text-slate-700 dark:!text-slate-100">خدماتنا</h2>
       </div>
 
-      <div className="flex flex-col mt-20" dir="ltr">
+      <div className="flex flex-col mt-12" dir="ltr">
         <VerticalTimeline>
           {services.map((service, index) => (
             <ServicesCard key={index} service={service} index={index} />
           ))}
         </VerticalTimeline>
       </div>
-    </>
+    </section>
   );
 };
 

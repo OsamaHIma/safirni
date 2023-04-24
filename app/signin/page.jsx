@@ -54,13 +54,13 @@ const SignIn = () => {
     setFormFields(defaultProps);
   };
   return (
-    <section className="signup-form transition-all ease-in relative">
+    <section className="signup-form !pt-0 sm:!pt-4 transition-all ease-in relative">
       <form
         className="needs-validation bg-slate-50 dark:!bg-slate-700"
         onSubmit={formHandler}
         noValidate
       >
-        <h2 className="dark:!text-slate-300">إنشاء حساب</h2>
+        <h2 className="dark:!text-slate-300">تسجيل الدخول</h2>
         <p className="hint-text dark:!text-slate-100">
           سجل الدخول عن طريق جوجل او البريد الإكتروني
         </p>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "./style.scss";
 import {
   FacebookIcon,
@@ -21,7 +21,7 @@ const Contact = () => {
   };
   return (
     <>
-      <div className="contact" id="contact">
+      <section className="contact" id="contact">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -29,7 +29,7 @@ const Contact = () => {
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!4v1657551692935!6m8!1m7!1sgT28ssf0BB2LxZ63JNcL1w!2m2!1d35.70407437075822!2d139.5577317304603!3f297.2477871110872!4f-21.116245064170727!5f0.7820865974627469"
                   className="border-none"
-                  allowFullscreen="true"
+                  allowFullScreen={true}
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
@@ -100,7 +100,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
-      </div>
+      </section>
 
       <footer className="footer">
         <div className="top-footer">

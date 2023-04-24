@@ -114,7 +114,7 @@ const EgyptTour = () => {
           </button>
         </div>
       </section>
-      <article>
+      <article className="bg-[#597cd6a8]">
         <section>
           <div className="inner-wrap max-w-3xl py-10 px-7 text-center mx-auto dark:!text-slate-100">
             <h1 className="dark:!text-white font-semibold leading-10 mb-4">
