@@ -87,7 +87,7 @@ const SignUp = () => {
       >
         <h2 className="dark:!text-slate-300">إنشاء حساب</h2>
         <p className="hint-text dark:!text-slate-100">
-          سجل الدخول عن طريق جوجل او البريد الإكتروني
+        انشئ حساب عن طريق جوجل او البريد الإكتروني
         </p>
         <div className="text-center">
           <Button
